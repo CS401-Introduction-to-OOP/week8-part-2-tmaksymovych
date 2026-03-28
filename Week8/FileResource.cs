@@ -1,6 +1,20 @@
 namespace Week8;
 
-public class FileResource
+public class FileResource : Resource, IDisposable
 {
+    public FileResource(string name) : base(name){}
     
+    public override void Open()
+    {
+        IsOpen = true;
+    }
+    public override void Close()
+    {
+        IsOpen = false;
+    }
+    public void Dispose()
+    {
+        Dispose();
+        Console.WriteLine("Disposing in progress");
+    }
 }
